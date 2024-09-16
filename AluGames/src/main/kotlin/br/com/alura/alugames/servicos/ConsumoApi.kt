@@ -12,7 +12,7 @@ class ConsumoApi {
     fun buscaJogo(id: String): InfoJogo {
         val client = HttpClient.newHttpClient()
         val request = HttpRequest.newBuilder()
-            .uri(URI.create("https://alugames.herokuapp.com/jogos?busca=$id"))
+            .uri(URI.create("https://www.cheapshark.com/api/1.0/games?id=$id"))
             .build()
         val response = client.send(request,BodyHandlers.ofString())
 
