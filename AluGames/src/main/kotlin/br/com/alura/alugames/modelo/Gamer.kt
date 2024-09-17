@@ -16,7 +16,7 @@ data class Gamer(var nome: String, var email: String) {
     var idInterno: String? = null
         private set
 
-    val jogosComprados: MutableList<Jogo?> = mutableListOf<Jogo?>()
+    val jogosBuscados: MutableList<Jogo?> = mutableListOf<Jogo?>()
 
 //    init {
 //        if (nome.isNullOrBlank()) {

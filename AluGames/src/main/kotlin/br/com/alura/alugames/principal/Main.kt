@@ -43,22 +43,22 @@ fun main() {
                 jogo?.descricao = jogo?.titulo
             }
 
-            gamer.jogosComprados.add(jogo)
+            gamer.jogosBuscados.add(jogo)
         }
         println("Deseja buscar outro jogo? (S/N)")
         val resposta = leitura.nextLine()
     } while (resposta.equals("S", true))
 
     println("Jogos buscadados:")
-    println(gamer.jogosComprados)
+    println(gamer.jogosBuscados)
     println("Jogos ordenados por Titulo:")
-    println(gamer.jogosComprados.sortedBy { it?.titulo })
+    println(gamer.jogosBuscados.sortedBy { it?.titulo })
 
-    gamer.jogosComprados.forEach {
+    gamer.jogosBuscados.forEach {
         println(it?.titulo)
     }
 
-    val filtrados = gamer.jogosComprados.filter {
+    val filtrados = gamer.jogosBuscados.filter {
         it?.titulo?.contains("Resident Evil 5", true) ?: false
     }
 
@@ -69,13 +69,16 @@ fun main() {
     val excluir = leitura.nextLine()
 
     if (excluir.equals("S", true)) {
-        println("Digite o código do jogo a ser excluído:")
-        val codigo = leitura.nextLine()
-        val jogoExcluido = gamer.jogosComprados.find {
-            it?.titulo.equals(codigo, true)
-        }
-        gamer.jogosComprados.remove(jogoExcluido)
+        println("\n" + gamer.jogosBuscados)
+        println("Digite a posição do jogo a ser excluído:")
+        val posicao = leitura.nextInt()
+
+        gamer.jogosBuscados.removeAt(posicao)
     }
+
+    println("Jogos Atualizados:")
+
+    println(gamer.jogosBuscados)
 
     println("Busca finalizada com sucesso")
 
